@@ -19,6 +19,7 @@ Mu Xu<sup>1</sup>,
 <sup>3</sup>The Chinese University of Hong Kong,
 <sup>4</sup>Xi'an Jiaotong University
 
+(*) Equal contribution. (†) Project leader.
 </div>
 
 <div align="center">

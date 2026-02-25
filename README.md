@@ -33,6 +33,7 @@ Mu Xu<sup>1</sup>,
 - [ ] Release MindDriver reasoning code
 - [ ] Release whole MindDriver code
 - [ ] Release checkpoints
+<p align="right"></p>
 
 ## 🙏 Acknowledgement
 Our work is primarily based on the following codebases:[LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory), [MoVQGAN](https://github.com/ai-forever/MoVQGAN), [GPT-Driver](https://github.com/PointsCoder/GPT-Driver), [Agent-Driver](https://github.com/USC-GVL/Agent-Driver). We are sincerely grateful for their work.

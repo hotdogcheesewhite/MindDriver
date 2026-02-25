@@ -7,7 +7,7 @@ MindDriver: Introducing Progressive Multimodal Reasoning for Autonomous Driving 
 
 <div align="center">
 <img width="800" alt="image" src="assets/figintro1.png">
-<p>DeepSight achieves leading performance on most of metrics compared with E2E methods.</p>
+<p>Comparison of different reasoning methods. Text reasoning struggles with space misalignment, while image reasoning suffers from guideless image prediction. Our proposed progressive multimodal reasoning conducts aligned smooth reasoning.</p>
 </div>
 
 Lingjun Zhang<sup>1</sup>,

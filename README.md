@@ -23,7 +23,7 @@ Mu Xu<sup>1</sup>,
 <sup>4</sup>Xi'an Jiaotong University
 
 **MindDriver**: The proposed multimodal reasoning framework that enables VLM to imitate human-like progressive thinking for autonomous driving. MindDriver presents semantic understanding, semantic-to-physical space imagination, and physical-space trajectory planning.
-
+</div>
 ## 🗓️ TODO
 - [ ] Release MindDriver reasoning code
 - [ ] Release whole MindDriver code

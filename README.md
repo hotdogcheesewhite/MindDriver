@@ -1,10 +1,14 @@
-# MindDriver
 <div align="center">
 <a id="readme-top"></a>
-<h1> <img src="assets/logo.png" style="vertical-align: -10px;" :height="50px" width="50px"> MindDriver: Introducing Progressive Multimodal Reasoning for Autonomous Driving </h1>
+MindDriver: Introducing Progressive Multimodal Reasoning for Autonomous Driving </h1>
 <h3 align="center"><strong>🎉🎉CVPR 2026 🎉🎉</strong></h3>
 
+</div>
 
+<div align="center">
+<img width="800" alt="image" src="assets/figintro1.png">
+<p>DeepSight achieves leading performance on most of metrics compared with E2E methods.</p>
+</div>
 
 Lingjun Zhang<sup>1</sup>,
 Yujian Yuan<sup>1,2</sup>,

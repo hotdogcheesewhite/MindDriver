@@ -38,6 +38,131 @@ Mu Xu<sup>1</sup>,
 <p align="right"><a href="#readme-top"><img src=https://img.shields.io/badge/back%20to%20top-red?style=flat
 ></a></p>
 
+## 🛠️ Installation
+
+Create the required environment through the following steps:
+
+```bash
+git clone https://github.com/hotdogcheesewhite/MindDriver.git && cd MindDriver
+
+conda create -n MindDriver python=3.10 -y && conda activate MindDriver
+
+# CUDA 12.4
+pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu124
+
+cd LLaMA-Factory && pip install -e ".[metrics,deepspeed,liger-kernel,bitsandbytes]" --no-build-isolation
+
+cd .. && pip install -r requirements.txt
+```
+<p align="right"><a href="#readme-top"><img src=https://img.shields.io/badge/back%20to%20top-red?style=flat
+></a></p>
+
+## 📦 Data Preparation
+
+1、Download nuScenes
+
+Download the complete dataset from [nuScenes](https://www.nuscenes.org/nuscenes#download) and extract it to `./LLaMA-Factory/data/nuscenes`
+
+Or establish a soft connection：
+
+```bash
+ln -s /path/to/your/nuscenes LLaMA-Factory/data
+```
+
+We used pre-cached data from the nuScenes dataset. The data can be downloaded at [Google Drive](https://drive.google.com/file/d/1Pc3vKtNHwZVY2mB9xBOOKiMIMr4hJFj7/view?usp=drive_link). The file `cached_nuscenes_info.pkl` is located in the directory `./create_data`. The `metrics` folder is placed in the directory `./tools/data`.
+
+2、Extract visual tokens
+
+Separately extract the visual tokens of the front view from fine-tuned data, to facilitate supervised MLLM:
+
+```bash
+python MoVQGAN/sft_data.py
+```
+
+3、Construct data
+
+Construct fine-tuning data that conform to the LLaMA-Factory format respectively:
+
+```bash
+python create_data/sft_data.py --split train # Change to "val" for constructing the validation set
+python gen_data/for_api_data.py
+python gen_data/api_call_mutil.py
+python gen_data/check.py
+```
+
+Follow the [LLaMA-Factory tutorial](https://github.com/hiyouga/LLaMA-Factory/blob/main/data/README.md) and add the dataset information in the file `./LLaMA-Factory/data/dataset_info.json`.
+<p align="right"><a href="#readme-top"><img src=https://img.shields.io/badge/back%20to%20top-red?style=flat
+></a></p>
+
+## 🚀 Training
+Enter the working directory of LLaMA-Factory:
+```bash
+cd LLaMA-Factory
+```
+During the SFT stage, we assist the model in achieving two-stage alignment.
+```bash
+llamafactory-cli train ../configs/sft.yaml
+```
+<p align="right"><a href="#readme-top"><img src=https://img.shields.io/badge/back%20to%20top-red?style=flat
+></a></p>
+
+## 🎯 Infer
+Run the following command in the LLaMA-Factory directory to infer test dataset:
+```bash
+python scripts/vllm_infer.py \ 
+--model_name_or_path saves/qwen25_vl-3b/sft \
+--dataset val_cot_motion \
+--template qwen2_vl \
+--cutoff_len 32768 \
+--max_new_tokens 2048 \
+--max_samples 100000 \
+--image_resolution 524288 \
+--save_name results.jsonl \
+--temperature 0.1 \
+--top_p 0.1 \
+--top_k 10
+```
+<p align="right"><a href="#readme-top"><img src=https://img.shields.io/badge/back%20to%20top-red?style=flat
+></a></p>
+
+## 📈 Evaluation
+First, under the MindDriver directory, match the predicted results with the tokens to facilitate the evaluation:
+```bash
+cd ..
+
+python tools/match.py \
+--pred_trajs_path ./LLaMA-Factory/results.jsonl \
+--token_traj_path ./LLaMA-Factory/data/val_cot_motion.json
+```
+
+Then evaluate the L2 and collision rate indicators for the end-to-end trajectory planning:
+```bash
+python tools/evaluation/evaluation.py \
+# Change to "stp3" and use the ST-P3 calculation method
+--metric uniad \  
+--result_file ./LLaMA-Factory/eval_traj.json
+```
+<p align="right"><a href="#readme-top"><img src=https://img.shields.io/badge/back%20to%20top-red?style=flat
+></a></p>
+
+## 👀 Visualization
+Use the following command under the MindDriver directory to visualize the trajectory:
+```bash
+python tools/visualization/visualize_planning.py \
+--pred-trajs-path ./LLaMA-Factory/results.jsonl \
+--tokens-path ./LLaMA-Factory/eval_traj.json \  
+--output-path ./vis_traj
+```
+
+Use the following command under the MindDriver directory to restore the visual tokens to the pixel space and visualize the CoT:
+```bash
+python ./MoVQGAN/vis.py \
+--input_json ./LLaMA-Factory/eval_traj.json \
+--output_dir ./vis_cot
+```
+<p align="right"><a href="#readme-top"><img src=https://img.shields.io/badge/back%20to%20top-red?style=flat
+></a></p>
+
 ## 🙏 Acknowledgement
 Our work is primarily based on the following codebases:[FSDrive](https://github.com/MIV-XJTU/FSDrive), [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory), [MoVQGAN](https://github.com/ai-forever/MoVQGAN), [GPT-Driver](https://github.com/PointsCoder/GPT-Driver), [Agent-Driver](https://github.com/USC-GVL/Agent-Driver). We are sincerely grateful for their work.
 

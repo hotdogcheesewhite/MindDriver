@@ -3,6 +3,7 @@
 <h1>MindDriver: Introducing Progressive Multimodal Reasoning for Autonomous Driving </h1>
 <h3 align="center"><strong>🎉🎉CVPR 2026 🎉🎉</strong></h3>
 <a href="https://arxiv.org/abs/2602.21952"><img src='https://img.shields.io/badge/arXiv-Paper-red?logo=arxiv&logoColor=white' alt='arXiv'></a>
+  
 Lingjun Zhang<sup>1*</sup>,
 Yujian Yuan<sup>1,2*</sup>,
 Changjie Wu<sup>1†</sup>, 

@@ -31,10 +31,10 @@ Mu Xu<sup>1</sup>,
 
 **MindDriver**: The proposed multimodal reasoning framework that enables VLM to imitate human-like progressive thinking for autonomous driving. MindDriver presents semantic understanding, semantic-to-physical space imagination, and physical-space trajectory planning.
 
-## 🗓️ TODO
-- [ ] Release MindDriver reasoning code
-- [ ] Release whole MindDriver code
-- [ ] Release checkpoints
+## 🗓️ Release Plan
+- **`2026/02`**: ✅ MindDriver paper.
+- **`2026/04`**: ✅ MindDriver annotation and training code.
+- **`2026/06`**: MindDriver checkpoints.
 <p align="right"><a href="#readme-top"><img src=https://img.shields.io/badge/back%20to%20top-red?style=flat
 ></a></p>
 

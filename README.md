@@ -116,12 +116,11 @@ NuScenes Raw Images
     │ Input: {split}_final.json + Qwen2.5-VL checkpoint
     │ Output: Fine-tuned model weights
 ```
-
-```
-
 Follow the [LLaMA-Factory tutorial](https://github.com/hiyouga/LLaMA-Factory/blob/main/data/README.md) and add the dataset information in the file `./LLaMA-Factory/data/dataset_info.json`.
 <p align="right"><a href="#readme-top"><img src=https://img.shields.io/badge/back%20to%20top-red?style=flat
 ></a></p>
+
+
 
 ## 🚀 Training
 Enter the working directory of LLaMA-Factory:

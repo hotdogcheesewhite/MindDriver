@@ -88,6 +88,35 @@ python create_data/sft_data.py --split train # Change to "val" for constructing 
 python gen_data/for_api_data.py
 python gen_data/api_call_mutil.py
 python gen_data/check.py
+python gen_data.py/convert_to_qwen_img.py
+NuScenes Raw Images
+    │
+    ▼
+[Step 1] MoVQGAN/sft_data.py
+    │ Encode CAM_FRONT images → discrete visual tokens
+    │ Output: gt_indices_sft.json
+    ▼
+[Step 2] create_data/sft_data.py
+    │ Build prompt + image paths + ground-truth trajectory
+    │ Output: {split}_api_split.json (training data template)
+    ▼
+[Step 3] gen_data/api_call_mutil.py  ──── OR ────  create_data/singleinfer.py (local)
+    │ Send images + prompt → LLM → get reasoning text
+    │ Output: result_qwen_2_5_72b.json
+    ▼
+[Step 4] gen_data/check.py
+    │ Quality-check each reasoning result via API
+    │ Output: check_right_or_wrong.json
+    ▼
+[Step 5] gen_data/convert_to_qwen_img.py
+    │ Merge: API results + check results + MoVQGAN tokens + CAN bus data
+    │ Output: {split}_final.json (ready for training)
+    ▼
+[Step 6] LLaMA-Factory (configs/sft.yaml)
+    │ Input: {split}_final.json + Qwen2.5-VL checkpoint
+    │ Output: Fine-tuned model weights
+```
+
 ```
 
 Follow the [LLaMA-Factory tutorial](https://github.com/hiyouga/LLaMA-Factory/blob/main/data/README.md) and add the dataset information in the file `./LLaMA-Factory/data/dataset_info.json`.

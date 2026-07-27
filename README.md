@@ -34,7 +34,7 @@ Mu Xu<sup>1</sup>,
 ## 🗓️ Release Plan
 - **`2026/02`**: ✅ MindDriver paper.
 - **`2026/04`**: ✅ MindDriver annotation and training code.
-- **`2026/06`**: MindDriver checkpoints.
+- **`2026/06`**: ✅ MindDriver checkpoints.
 <p align="right"><a href="#readme-top"><img src=https://img.shields.io/badge/back%20to%20top-red?style=flat
 ></a></p>
 
@@ -197,6 +197,7 @@ Our work is primarily based on the following codebases:[FSDrive](https://github.
 | Resource | Link |
 | :--- | :--- |
 | **Model Weights** | [MinDdrive on HF](https://huggingface.co/zhangthu/minddrive) |
+| **Val dataset** | [MinDdrive on HF](https://huggingface.co/zhangthu/minddrive_val) |
 
 <p align="right"><a href="#readme-top"><img src=https://img.shields.io/badge/back%20to%20top-red?style=flat
 ></a></p>

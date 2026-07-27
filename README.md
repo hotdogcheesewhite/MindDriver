@@ -197,7 +197,7 @@ Our work is primarily based on the following codebases:[FSDrive](https://github.
 | Resource | Link |
 | :--- | :--- |
 | **Model Weights** | [MinDdrive on HF](https://huggingface.co/zhangthu/minddrive) |
-| **Val dataset** | [MinDdrive on HF](https://huggingface.co/zhangthu/minddrive_val) |
+| **Val dataset** | [MinDdrive on HF](https://huggingface.co/datasets/zhangthu/minddrive_val) |
 
 <p align="right"><a href="#readme-top"><img src=https://img.shields.io/badge/back%20to%20top-red?style=flat
 ></a></p>

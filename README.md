@@ -191,13 +191,15 @@ python ./MoVQGAN/vis.py \
 <p align="right"><a href="#readme-top"><img src=https://img.shields.io/badge/back%20to%20top-red?style=flat
 ></a></p>
 
-## 🙏 Acknowledgement
-Our work is primarily based on the following codebases:[FSDrive](https://github.com/MIV-XJTU/FSDrive), [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory), [MoVQGAN](https://github.com/ai-forever/MoVQGAN), [GPT-Driver](https://github.com/PointsCoder/GPT-Driver), [Agent-Driver](https://github.com/USC-GVL/Agent-Driver). We are sincerely grateful for their work.
 ### 🖼️ Weights
 | Resource | Link |
 | :--- | :--- |
 | **Model Weights** | [MinDdrive on HF](https://huggingface.co/zhangthu/minddrive) |
 | **Val dataset** | [MinDdrive on HF](https://huggingface.co/datasets/zhangthu/minddrive_val) |
+
+## 🙏 Acknowledgement
+Our work is primarily based on the following codebases:[FSDrive](https://github.com/MIV-XJTU/FSDrive), [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory), [MoVQGAN](https://github.com/ai-forever/MoVQGAN), [GPT-Driver](https://github.com/PointsCoder/GPT-Driver), [Agent-Driver](https://github.com/USC-GVL/Agent-Driver). We are sincerely grateful for their work.
+
 
 <p align="right"><a href="#readme-top"><img src=https://img.shields.io/badge/back%20to%20top-red?style=flat
 ></a></p>
